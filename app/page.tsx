@@ -1,4 +1,5 @@
 import HeroSection from './components/HeroSection'
+import ImpactStats from './components/ImpactStats'
 import AnimatedBlog from './components/AnimatedBlog'
 import SEOBotIntro from './components/SEOBotIntro'
 import WhyChooseUs from './components/WhyChooseUs'
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       <HeroSection />
+      <ImpactStats />
       <AnimatedBlog />
       <SEOBotIntro />
       <HowItWorks />
