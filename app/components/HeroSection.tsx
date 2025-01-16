@@ -20,7 +20,7 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="relative z-10">
+      <div className="relative z-10 max-w-6xl mx-auto w-full">
         <motion.h3
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,16 +38,18 @@ export default function HeroSection() {
           className="text-4xl md:text-6xl font-bold mb-4"
           style={{ fontFamily: 'inherit' }}
         >
-          YourLeadMatrix — fully autonomous «SEO Robot»
+          YourLeadMatrix — fully autonomous «SEO Agents»
           <br />
-          with AI agents for{' '}
+          for{' '}
           <TypeAnimation
             sequence={[
               'marketers',
               2000,
-              'busy founders',
+              'founders',
               2000,
-              'solo makers',
+              'creators',
+              2000,
+              'agencies',
               2000,
             ]}
             wrapper="span"
@@ -75,7 +77,7 @@ export default function HeroSection() {
           onClick={() => setIsPopupOpen(true)}
           className="bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-3 px-6 rounded-md text-lg transition-colors duration-300"
         >
-          Book a Call
+          Get a Quote
         </motion.button>
       </div>
 
@@ -94,4 +96,6 @@ export default function HeroSection() {
     </section>
   )
 }
+
+
 
