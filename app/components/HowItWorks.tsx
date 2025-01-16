@@ -36,7 +36,7 @@ export default function HowItWorks() {
       >
         A 3-Step Process for SEO Domination
       </motion.h2>
-      <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
         {steps.map((step, index) => (
           <motion.div
             key={index}
@@ -58,7 +58,7 @@ export default function HowItWorks() {
           onClick={() => setIsPopupOpen(true)}
           className="bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-3 px-6 rounded-md text-lg transition-colors duration-300"
         >
-          Book a Call
+          Get a Quote
         </motion.button>
       </div>
       <BookingPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
