@@ -22,7 +22,7 @@ export default function WhyChooseUs() {
         className="text-2xl md:text-4xl font-bold mb-12 text-center"
       >
         <span className="text-[#00FF00] font-mono text-base mb-2 block">// Our Impact</span>
-        SEObot has created over <span className="text-[#00FF00]">100k</span> articles!
+        We've created over <span className="text-[#00FF00]">100k</span> articles!
         <br />
         Driving <span className="text-[#00FF00]">0.6 billion</span> impressions & <span className="text-[#00FF00]">15 million</span> clicks.
       </motion.h1>
