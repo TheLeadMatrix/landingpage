@@ -16,8 +16,8 @@ export default function AnimatedBlog() {
   }, [])
 
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
+    <section className="pt-8 pb-20 px-4">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           key={key}
           initial={{ opacity: 0, y: 20 }}
@@ -106,4 +106,5 @@ export default function AnimatedBlog() {
     </section>
   )
 }
+
 
