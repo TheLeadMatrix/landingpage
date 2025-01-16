@@ -9,7 +9,7 @@ export default function HeroSection() {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
+    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden pb-0">
       {/* Matrix background effect */}
       <div 
         className="absolute inset-0 opacity-20 z-0"
@@ -96,6 +96,7 @@ export default function HeroSection() {
     </section>
   )
 }
+
 
 
 
