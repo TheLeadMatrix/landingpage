@@ -1,97 +1,103 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import BookingPopup from './BookingPopup'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 
-const testimonials = [
+const metrics = [
   {
-    name: 'John Doe',
-    company: 'Tech Innovators',
-    quote: 'Our organic traffic increased by 200% within just 3 months of using this AI-powered SEO blog service.',
-    stats: { traffic: '+200%', rankings: '+15 positions', roi: '350%' }
+    title: "Small Business Growth",
+    clicks: "1.84K",
+    impressions: "48.4K",
+    ctr: "3.8%",
+    position: "23.4",
+    graphUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo%201-h3Ade45Fjr2mzzkCkjAN3ZfzE4TLQl.webp"
   },
   {
-    name: 'Jane Smith',
-    company: 'E-commerce Giants',
-    quote: 'We\'ve seen a significant boost in our search rankings and conversions since implementing this service.',
-    stats: { traffic: '+150%', rankings: '+10 positions', roi: '280%' }
+    title: "E-commerce Success",
+    clicks: "7.27K",
+    impressions: "298K",
+    ctr: "2.4%",
+    position: "25.3",
+    graphUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo%202-ut3jRvxUAd9vHhjaGwSDgdjBJa3TO2.webp"
   },
   {
-    name: 'Mike Johnson',
-    company: 'Local Business Pro',
-    quote: 'As a small business, this service has been a game-changer for our online presence and lead generation.',
-    stats: { traffic: '+180%', rankings: '+12 positions', roi: '320%' }
+    title: "Enterprise Scale",
+    clicks: "49.1K",
+    impressions: "1.12M",
+    ctr: "4.4%",
+    position: "15.4",
+    graphUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo%203-ecGLrSBNOdx97RcTzLxowmqMxnEVDj.webp"
+  },
+  {
+    title: "Sustained Growth",
+    clicks: "5.18K",
+    impressions: "165K",
+    ctr: "3.1%",
+    position: "21.2",
+    graphUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo%204-OYEnGN6BDDDutwQzMQHhCLL2QCCLXS.webp"
   }
-];
+]
 
 export default function SuccessStories() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isPopupOpen, setIsPopupOpen] = useState(false)
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-  }
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length)
-  }
 
   return (
-    <section className="py-20 px-4">
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-3xl md:text-4xl font-bold mb-12 text-center"
-      >
-        Real Results from Real Businesses
-      </motion.h2>
-      <div className="max-w-4xl mx-auto">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.5 }}
-            className="bg-gray-700 p-6 rounded-lg mb-8"
-          >
-            <p className="text-lg mb-4">"{testimonials[currentIndex].quote}"</p>
-            <p className="font-semibold">
-              {testimonials[currentIndex].name}, {testimonials[currentIndex].company}
-            </p>
-          </motion.div>
-        </AnimatePresence>
-        <div className="flex justify-between items-center">
-          <button onClick={prevTestimonial} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
-            Previous
-          </button>
-          <button onClick={nextTestimonial} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
-            Next
-          </button>
-        </div>
-        <div className="mt-8 grid grid-cols-3 gap-4">
-          {Object.entries(testimonials[currentIndex].stats).map(([key, value]) => (
-            <div key={key} className="bg-gray-700 p-4 rounded-lg text-center">
-              <h3 className="text-xl font-semibold mb-2">{key}</h3>
-              <p className="text-2xl text-[#00FF00]">{value}</p>
-            </div>
+    <section className="py-20 px-4 bg-gray-800">
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl md:text-4xl font-bold mb-12 text-center"
+        >
+          <span className="text-[#00FF00] font-mono text-base block mb-2">// Real Results</span>
+          Proven SEO Performance Across Industries
+        </motion.h2>
+
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          {metrics.map((metric, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-gray-900 rounded-lg p-6 border border-gray-700 transition-all duration-300 hover:border-[#00FF00] hover:shadow-[0_0_20px_rgba(0,255,0,0.15)] hover:scale-[1.02]"
+            >
+              <h3 className="text-xl font-bold mb-4 text-[#00FF00]">{metric.title}</h3>
+              
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="bg-blue-500 bg-opacity-20 p-4 rounded-lg">
+                  <p className="text-sm text-blue-300 mb-1">Total Clicks</p>
+                  <p className="text-2xl font-bold text-blue-400">{metric.clicks}</p>
+                </div>
+                <div className="bg-purple-500 bg-opacity-20 p-4 rounded-lg">
+                  <p className="text-sm text-purple-300 mb-1">Impressions</p>
+                  <p className="text-2xl font-bold text-purple-400">{metric.impressions}</p>
+                </div>
+                <div className="bg-gray-700 bg-opacity-50 p-4 rounded-lg">
+                  <p className="text-sm text-gray-400 mb-1">Avg. CTR</p>
+                  <p className="text-2xl font-bold text-gray-300">{metric.ctr}</p>
+                </div>
+                <div className="bg-gray-700 bg-opacity-50 p-4 rounded-lg">
+                  <p className="text-sm text-gray-400 mb-1">Avg. Position</p>
+                  <p className="text-2xl font-bold text-gray-300">{metric.position}</p>
+                </div>
+              </div>
+
+              <div className="relative h-[200px] w-full rounded-lg overflow-hidden">
+                <Image
+                  src={metric.graphUrl || "/placeholder.svg"}
+                  alt={`Performance graph for ${metric.title}`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </motion.div>
           ))}
         </div>
-        <div className="mt-12 text-center">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsPopupOpen(true)}
-            className="bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-3 px-6 rounded-md text-lg transition-colors duration-300"
-          >
-            Book a Call
-          </motion.button>
-        </div>
-        <BookingPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+
       </div>
     </section>
   )
 }
+
 
