@@ -9,34 +9,37 @@ export default function GetStarted() {
 
   return (
     <section className="py-20 px-4 bg-gray-800">
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-3xl md:text-4xl font-bold mb-8 text-center"
-      >
-        Let's Take Your SEO to the Next Level
-      </motion.h2>
-      <motion.p
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-xl md:text-2xl mb-8 text-center"
-      >
-        Book a call to get a personalized quote tailored to your business needs.
-      </motion.p>
-      <div className="flex justify-center">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setIsPopupOpen(true)}
-          className="bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-3 px-6 rounded-md text-lg transition-colors duration-300"
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl md:text-4xl font-bold mb-8 text-center"
         >
-          Book a Call
-        </motion.button>
+          Let's Take Your SEO to the Next Level
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-xl md:text-2xl mb-8 text-center"
+        >
+          Book a call to get a personalized quote tailored to your business needs.
+        </motion.p>
+        <div className="flex justify-center">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsPopupOpen(true)}
+            className="bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-3 px-6 rounded-md text-lg transition-colors duration-300"
+          >
+            Get a Quote
+          </motion.button>
+        </div>
+        <BookingPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
       </div>
-      <BookingPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </section>
   )
 }
+
 
