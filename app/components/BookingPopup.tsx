@@ -52,12 +52,12 @@ export default function BookingPopup({ isOpen, onClose }: BookingPopupProps) {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-gray-800 rounded-lg p-6 w-[400px] h-[400px] overflow-hidden flex flex-col"
+            className="bg-gray-800 rounded-lg p-6 w-[700px] h-[700px] overflow-hidden flex flex-col"
           >
             <h2 className="text-2xl font-bold mb-4 text-white">Book a Call</h2>
-            <div className="h-[320px] overflow-y-auto">
+            <div className="h-[550px] overflow-y-auto">
               <iframe 
-                src="https://link.yourleadmatrix.com/widget/booking/bv9szTNrVyisg3zyEffM?embed=true&view=compact" 
+                src="https://link.yourleadmatrix.com/widget/booking/bv9szTNrVyisg3zyEffM" 
                 style={{width: '100%', height: '100%', border: 'none'}}
                 scrolling="yes"
                 id="bv9szTNrVyisg3zyEffM_1736955998667"
