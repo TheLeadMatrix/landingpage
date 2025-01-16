@@ -2,11 +2,10 @@
 
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import BookingPopup from './BookingPopup'
 
 const languages = [
-  "English", "Spanish", "Russian", "Swedish", "Turkish", "Ukrainian", "Italian", "Japanese",
-  "Korean", "Latvian", "Portuguese", "Hebrew", "German", "French", "Finnish", "Bengali",
+  "English", "Spanish", "Russian", "Swedish", "Turkish", "Ukrainian", "Italian", "Japanese", 
+  "Korean", "Latvian", "Portuguese", "Hebrew", "German", "French", "Finnish", "Bengali", 
   "Bulgarian", "Arabic", "Dutch", "Chinese", "Croatian", "Czech", "Hungarian", "Hindi"
 ]
 
@@ -66,10 +65,9 @@ const LanguageRow = ({ languages, direction }: { languages: string[], direction:
 }
 
 export default function LanguageShowcase() {
-  const [isPopupOpen, setIsPopupOpen] = useState(false)
   const rowCount = 3
   const languagesPerRow = Math.ceil(languages.length / rowCount)
-
+  
   return (
     <section className="py-20 px-4 bg-gray-900 overflow-hidden">
       <div className="max-w-6xl mx-auto">
@@ -81,7 +79,7 @@ export default function LanguageShowcase() {
         >
           We support over 25 languages
         </motion.h2>
-
+        
         <div className="relative">
           {[...Array(rowCount)].map((_, index) => (
             <LanguageRow
@@ -91,17 +89,6 @@ export default function LanguageShowcase() {
             />
           ))}
         </div>
-        <div className="mt-12 text-center">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsPopupOpen(true)}
-            className="bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-3 px-6 rounded-md text-lg transition-colors duration-300"
-          >
-            Book a Call
-          </motion.button>
-        </div>
-        <BookingPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
       </div>
     </section>
   )
