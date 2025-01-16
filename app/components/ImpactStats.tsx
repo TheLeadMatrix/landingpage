@@ -4,18 +4,23 @@ import { motion } from 'framer-motion'
 
 export default function ImpactStats() {
   return (
-    <section className="py-20 px-4 bg-black relative overflow-hidden">
+    <section className="pb-20 px-4 bg-black relative overflow-hidden">
       {/* Matrix background effect */}
       <div 
         className="absolute inset-0 opacity-20 z-0"
         style={{
           backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(0, 255, 0, .05) 25%, rgba(0, 255, 0, .05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 0, .05) 75%, rgba(0, 255, 0, .05) 76%, transparent 77%, transparent)',
           backgroundSize: '50px 50px',
-          animation: 'matrix 3s linear infinite'
+          animation: 'matrix 3s linear infinite',
+          position: 'absolute',
+          top: '-50px',
+          left: 0,
+          right: 0,
+          bottom: 0,
         }}
       />
 
-      <div className="max-w-6xl mx-auto text-center relative z-10">
+      <div className="max-w-6xl mx-auto text-center relative z-10 pt-12">
         <motion.h3
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -57,5 +62,6 @@ export default function ImpactStats() {
     </section>
   )
 }
+
 
 
