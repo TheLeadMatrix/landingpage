@@ -45,7 +45,7 @@ export default function ImpactStats() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-xl md:text-2xl"
         >
-          Driving <span className="text-[#00FF00]">0.6 billion</span> impressions & <span className="text-[#00FF00]">15 million</span> clicks.
+          Driving <span className="text-[#00FF00]">600 Million</span> impressions & <span className="text-[#00FF00]">15 million</span> clicks.
         </motion.p>
       </div>
 
