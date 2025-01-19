@@ -7,6 +7,7 @@ import HowItWorks from './components/HowItWorks'
 import SuccessStories from './components/SuccessStories'
 import LanguageShowcase from './components/LanguageShowcase'
 import GetStarted from './components/GetStarted'
+import BlogPosts from './components/BlogPosts'
 
 export default function Home() {
   return (
@@ -19,8 +20,10 @@ export default function Home() {
       <WhyChooseUs />
       <SuccessStories />
       <LanguageShowcase />
+      <BlogPosts />
       <GetStarted />
     </main>
   )
 }
+
 
