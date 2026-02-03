@@ -45,7 +45,7 @@ const articles = [
 
 export default function BlogPosts() {
   return (
-    <section id="articles" className="py-20 px-4 bg-background">
+    <section id="articles" className="py-24 px-4 bg-gradient-to-b from-[#0f172a] to-[#020617]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,11 +54,11 @@ export default function BlogPosts() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3">
-            Article Examples
+          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
+            Content Examples
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
-            Latest SEO insights & guides
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+            See What We Create
           </h2>
         </motion.div>
 
@@ -70,25 +70,25 @@ export default function BlogPosts() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group p-6 rounded-xl bg-card border border-border hover:border-accent/30 transition-all"
+              className="group p-6 rounded-2xl glass-card glass-card-hover"
             >
-              <span className="inline-flex px-3 py-1 text-xs font-medium text-accent bg-accent/10 rounded-full mb-4">
+              <span className="inline-flex px-3 py-1 text-xs font-semibold text-primary bg-primary/10 rounded-full mb-4">
                 {article.category}
               </span>
               
-              <h3 className="font-display text-lg font-semibold text-foreground mb-3 line-clamp-2 group-hover:text-accent transition-colors">
+              <h3 className="font-display text-lg font-semibold text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                 {article.title}
               </h3>
               
-              <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+              <p className="text-sm text-muted-foreground mb-4 line-clamp-2 leading-relaxed">
                 {article.excerpt}
               </p>
               
               <Link 
                 href={article.url}
-                className="inline-flex items-center text-sm font-medium text-accent hover:text-accent/80 transition-colors group/link"
+                className="inline-flex items-center text-sm font-semibold text-primary hover:text-primary/80 transition-colors group/link"
               >
-                Read more
+                Read article
                 <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
               </Link>
             </motion.article>

@@ -1,14 +1,14 @@
 import './globals.css'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter'
 })
 
-const spaceGrotesk = Space_Grotesk({ 
+const plusJakarta = Plus_Jakarta_Sans({ 
   subsets: ['latin'],
-  variable: '--font-space-grotesk'
+  variable: '--font-plus-jakarta'
 })
 
 export const metadata = {
@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>{children}
+      <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`}>{children}
         <script src="https://link.yourleadmatrix.com/js/form_embed.js" type="text/javascript"></script>
       </body>
     </html>

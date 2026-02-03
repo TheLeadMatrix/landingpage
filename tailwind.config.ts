@@ -12,7 +12,7 @@ const config: Config = {
   	extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-plus-jakarta)', 'system-ui', 'sans-serif'],
       },
   		colors: {
   			background: 'hsl(var(--background))',

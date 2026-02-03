@@ -8,30 +8,30 @@ import { Search, FileText, Zap, CheckCircle } from 'lucide-react'
 const steps = [
   { 
     icon: Search, 
-    title: 'Topic Analysis', 
-    color: 'text-accent',
-    borderColor: 'border-accent',
-    bgColor: 'bg-accent/10'
+    title: 'Deep Research', 
+    color: 'text-primary',
+    borderColor: 'border-primary/30',
+    bgColor: 'bg-primary/10'
   },
   { 
     icon: FileText, 
-    title: 'Keyword Research', 
-    color: 'text-teal-400',
-    borderColor: 'border-teal-400',
-    bgColor: 'bg-teal-400/10'
+    title: 'Content Generation', 
+    color: 'text-accent',
+    borderColor: 'border-accent/30',
+    bgColor: 'bg-accent/10'
   },
   { 
     icon: Zap, 
-    title: 'Content Generation', 
-    color: 'text-cyan-400',
-    borderColor: 'border-cyan-400',
-    bgColor: 'bg-cyan-400/10'
+    title: 'SEO Optimization', 
+    color: 'text-yellow-400',
+    borderColor: 'border-yellow-400/30',
+    bgColor: 'bg-yellow-400/10'
   },
   { 
     icon: CheckCircle, 
-    title: 'Final Optimization', 
+    title: 'Fact Verification', 
     color: 'text-emerald-400',
-    borderColor: 'border-emerald-400',
+    borderColor: 'border-emerald-400/30',
     bgColor: 'bg-emerald-400/10'
   },
 ]
@@ -48,7 +48,7 @@ export default function AnimatedBlog() {
   }, [])
 
   return (
-    <section className="py-20 px-4 bg-background">
+    <section className="py-24 px-4 bg-gradient-to-b from-[#020617] to-[#0f172a]">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,11 +57,11 @@ export default function AnimatedBlog() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3">
+          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
             Live Demo
           </p>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
-            Watch our AI in action
+            Watch Our AI in Action
           </h2>
         </motion.div>
 
@@ -70,9 +70,9 @@ export default function AnimatedBlog() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="relative bg-card rounded-xl p-6 sm:p-8 border border-border shadow-2xl shadow-black/20"
+          className="relative rounded-2xl glass-card p-6 sm:p-8 shadow-2xl shadow-black/30"
         >
-          <div className="space-y-6">
+          <div className="space-y-5">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
@@ -80,24 +80,24 @@ export default function AnimatedBlog() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.15 }}
-                className={`flex items-start gap-4 p-4 rounded-lg ${step.bgColor} border ${step.borderColor}/20`}
+                className={`flex items-start gap-4 p-4 rounded-xl ${step.bgColor} border ${step.borderColor}`}
               >
-                <div className={`p-2 rounded-lg ${step.bgColor}`}>
+                <div className={`p-2.5 rounded-lg ${step.bgColor}`}>
                   <step.icon className={`h-5 w-5 ${step.color}`} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className={`text-sm font-medium ${step.color} mb-1`}>
+                  <h3 className={`text-sm font-semibold ${step.color} mb-1`}>
                     {step.title}
                   </h3>
                   <TypeAnimation
                     sequence={
                       index === 0
-                        ? ['Analyzing trending topics in your niche...', 1000, 'Topic identified: "10 Essential SEO Strategies for 2025"', 2000]
+                        ? ['Scanning top 20 SERP results for "AI SEO strategies 2026"...', 1500, 'Extracted 847 data points from authority sources.', 2500]
                         : index === 1
-                        ? ['Identifying primary and secondary keywords...', 1000, 'Keywords found: "SEO 2025, AI SEO, voice search optimization"', 2000]
+                        ? ['Generating 3,200-word comprehensive guide...', 1500, 'Structure: 8 sections with H2/H3 hierarchy complete.', 2500]
                         : index === 2
-                        ? ['Generating SEO-optimized content...', 1000, 'Structure: Introduction, Key Strategies, Implementation, Conclusion', 2000]
-                        : ['Optimizing meta tags and internal links...', 1000, 'Blog post ready for publication!', 2000]
+                        ? ['Optimizing for 12 LSI keywords and semantic entities...', 1500, 'Meta tags, schema markup, and internal links added.', 2500]
+                        : ['Cross-referencing 23 cited statistics...', 1500, 'All facts verified. Article ready for publication!', 2500]
                     }
                     wrapper="p"
                     cursor={index === 3}

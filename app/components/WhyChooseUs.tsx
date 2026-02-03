@@ -1,28 +1,29 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { Check } from 'lucide-react'
 
 const data = [
-  { month: 'Jan', blogs: 100 },
-  { month: 'Feb', blogs: 200 },
-  { month: 'Mar', blogs: 300 },
-  { month: 'Apr', blogs: 400 },
-  { month: 'May', blogs: 500 },
-  { month: 'Jun', blogs: 600 },
+  { month: 'Jan', impressions: 100 },
+  { month: 'Feb', impressions: 250 },
+  { month: 'Mar', impressions: 400 },
+  { month: 'Apr', impressions: 650 },
+  { month: 'May', impressions: 900 },
+  { month: 'Jun', impressions: 1200 },
 ]
 
 const benefits = [
-  'Consistent monthly content creation',
-  'Targeted keyword optimization',
-  'Improved search engine rankings',
-  'Increased organic traffic',
+  '100+ articles published monthly',
+  'Real-time SEO performance tracking',
+  '3,000+ word fact-checked deep-dives',
+  'Programmatic SEO at scale',
+  'Human editor review option',
 ]
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 px-4 bg-card border-y border-border">
+    <section className="py-24 px-4 bg-gradient-to-b from-[#020617] to-[#0f172a]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -31,15 +32,14 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3">
-            Our Impact
+          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
+            Why Us
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Your SEO secret weapon
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+            The Unfair Advantage
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We create <span className="text-foreground font-semibold">100 new articles</span> every month, 
-            driving consistent growth in your SEO performance.
+            Our AI agents work 24/7, delivering consistent content that compounds your organic growth.
           </p>
         </motion.div>
 
@@ -50,14 +50,14 @@ export default function WhyChooseUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="font-display text-2xl font-semibold text-foreground mb-4">
-              AI-Powered Optimization
+            <h3 className="font-display text-2xl font-bold text-foreground mb-4">
+              Compounding Results
             </h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Our AI generates perfectly optimized blogs tailored to your industry, targeting high-ROI keywords while
-              maintaining readability and engagement. From concept to publication, we handle it all.
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              Unlike freelancers or agencies that produce sporadic content, our AI agents deliver consistent, 
+              high-quality output that compounds over time. The result? Exponential organic growth.
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {benefits.map((benefit, index) => (
                 <motion.li
                   key={index}
@@ -67,7 +67,7 @@ export default function WhyChooseUs() {
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   className="flex items-center gap-3"
                 >
-                  <div className="p-1 rounded-full bg-accent/10">
+                  <div className="p-1 rounded-full bg-accent/20">
                     <Check className="h-4 w-4 text-accent" />
                   </div>
                   <span className="text-foreground">{benefit}</span>
@@ -81,31 +81,50 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="h-80 p-6 rounded-xl bg-background border border-border"
+            className="h-80 p-6 rounded-2xl glass-card"
           >
+            <p className="text-sm font-medium text-muted-foreground mb-4">Organic Impressions Growth</p>
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={data}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <AreaChart data={data}>
+                <defs>
+                  <linearGradient id="impressionsGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="hsl(var(--accent))" stopOpacity={0.3}/>
+                    <stop offset="95%" stopColor="hsl(var(--accent))" stopOpacity={0}/>
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
                 <XAxis 
                   dataKey="month" 
                   stroke="hsl(var(--muted-foreground))"
                   fontSize={12}
+                  tickLine={false}
+                  axisLine={false}
                 />
                 <YAxis 
                   stroke="hsl(var(--muted-foreground))"
                   fontSize={12}
+                  tickLine={false}
+                  axisLine={false}
+                  tickFormatter={(value) => `${value}k`}
                 />
                 <Tooltip 
                   contentStyle={{ 
                     backgroundColor: 'hsl(var(--card))', 
-                    border: '1px solid hsl(var(--border))',
-                    borderRadius: '8px',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '12px',
+                    backdropFilter: 'blur(12px)',
                   }}
                   labelStyle={{ color: 'hsl(var(--foreground))' }}
                   itemStyle={{ color: 'hsl(var(--accent))' }}
                 />
-                <Bar dataKey="blogs" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
-              </BarChart>
+                <Area 
+                  type="monotone" 
+                  dataKey="impressions" 
+                  stroke="hsl(var(--accent))" 
+                  strokeWidth={2}
+                  fill="url(#impressionsGradient)" 
+                />
+              </AreaChart>
             </ResponsiveContainer>
           </motion.div>
         </div>

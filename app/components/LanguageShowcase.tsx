@@ -55,7 +55,7 @@ const LanguageRow = ({ languages, direction }: { languages: string[], direction:
         {[...languages, ...languages].map((lang, index) => (
           <div
             key={index}
-            className="flex-shrink-0 px-4 py-2 rounded-lg bg-card border border-border text-sm text-foreground hover:border-accent/50 transition-colors"
+            className="flex-shrink-0 px-4 py-2 rounded-lg glass-card text-sm text-foreground hover:border-primary/50 transition-colors"
           >
             {lang}
           </div>
@@ -70,7 +70,7 @@ export default function LanguageShowcase() {
   const languagesPerRow = Math.ceil(languages.length / rowCount)
   
   return (
-    <section className="py-20 px-4 bg-card border-y border-border overflow-hidden">
+    <section className="py-24 px-4 bg-gradient-to-b from-[#020617] to-[#0f172a] overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,14 +79,14 @@ export default function LanguageShowcase() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center justify-center p-3 rounded-full bg-accent/10 mb-4">
-            <Globe className="h-6 w-6 text-accent" />
+          <div className="inline-flex items-center justify-center p-3 rounded-full bg-primary/10 mb-4">
+            <Globe className="h-6 w-6 text-primary" />
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            We support over 25 languages
+            Global Reach: 25+ Languages
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Reach global audiences with content optimized for local search engines
+            Expand into new markets with content optimized for local search engines.
           </p>
         </motion.div>
         

@@ -45,7 +45,7 @@ export default function BookingPopup({ isOpen, onClose }: BookingPopupProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50"
         >
           <motion.div
             ref={popupRef}
@@ -53,18 +53,18 @@ export default function BookingPopup({ isOpen, onClose }: BookingPopupProps) {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-card rounded-xl w-full max-w-[700px] h-[700px] overflow-hidden flex flex-col border border-border shadow-2xl"
+            className="rounded-2xl w-full max-w-[700px] h-[700px] overflow-hidden flex flex-col glass-card shadow-2xl"
           >
-            <div className="flex items-center justify-between p-4 border-b border-border">
-              <h2 className="font-display text-xl font-semibold text-foreground">Book a Call</h2>
+            <div className="flex items-center justify-between p-4 border-b border-white/10">
+              <h2 className="font-display text-xl font-semibold text-foreground">Book a Strategy Call</h2>
               <button
                 onClick={onClose}
-                className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto bg-white">
               <iframe 
                 src="https://link.yourleadmatrix.com/widget/booking/bv9szTNrVyisg3zyEffM" 
                 style={{width: '100%', height: '100%', border: 'none'}}

@@ -41,7 +41,7 @@ const metrics = [
 
 export default function SuccessStories() {
   return (
-    <section id="results" className="py-20 px-4 bg-background">
+    <section id="results" className="py-24 px-4 bg-gradient-to-b from-[#0f172a] to-[#020617]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,12 +50,15 @@ export default function SuccessStories() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3">
-            Real Results
+          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
+            Proof
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
-            Proven SEO performance across industries
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Real Results. Real Clients.
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Google Search Console data from actual client campaigns.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -66,35 +69,35 @@ export default function SuccessStories() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 rounded-xl bg-card border border-border hover:border-accent/30 transition-all"
+              className="p-6 rounded-2xl glass-card glass-card-hover"
             >
               <h3 className="font-display text-xl font-semibold text-foreground mb-6">
                 {metric.title}
               </h3>
               
               <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="p-4 rounded-lg bg-accent/10 border border-accent/20">
+                <div className="p-4 rounded-xl bg-primary/10 border border-primary/20">
                   <div className="flex items-center gap-2 mb-1">
-                    <MousePointer className="h-4 w-4 text-accent" />
+                    <MousePointer className="h-4 w-4 text-primary" />
                     <p className="text-xs text-muted-foreground">Total Clicks</p>
                   </div>
                   <p className="text-2xl font-bold text-foreground">{metric.clicks}</p>
                 </div>
-                <div className="p-4 rounded-lg bg-teal-500/10 border border-teal-500/20">
+                <div className="p-4 rounded-xl bg-accent/10 border border-accent/20">
                   <div className="flex items-center gap-2 mb-1">
-                    <Eye className="h-4 w-4 text-teal-400" />
+                    <Eye className="h-4 w-4 text-accent" />
                     <p className="text-xs text-muted-foreground">Impressions</p>
                   </div>
                   <p className="text-2xl font-bold text-foreground">{metric.impressions}</p>
                 </div>
-                <div className="p-4 rounded-lg bg-secondary border border-border">
+                <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10">
                   <div className="flex items-center gap-2 mb-1">
                     <TrendingUp className="h-4 w-4 text-muted-foreground" />
                     <p className="text-xs text-muted-foreground">Avg. CTR</p>
                   </div>
                   <p className="text-2xl font-bold text-foreground">{metric.ctr}</p>
                 </div>
-                <div className="p-4 rounded-lg bg-secondary border border-border">
+                <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10">
                   <div className="flex items-center gap-2 mb-1">
                     <Target className="h-4 w-4 text-muted-foreground" />
                     <p className="text-xs text-muted-foreground">Avg. Position</p>
@@ -103,7 +106,7 @@ export default function SuccessStories() {
                 </div>
               </div>
 
-              <div className="relative h-[180px] w-full rounded-lg overflow-hidden border border-border">
+              <div className="relative h-[180px] w-full rounded-xl overflow-hidden border border-white/10">
                 <Image
                   src={metric.graphUrl || "/placeholder.svg"}
                   alt={`Performance graph for ${metric.title}`}

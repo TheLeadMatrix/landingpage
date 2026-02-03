@@ -1,34 +1,38 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Bot, Zap, Clock, Target } from 'lucide-react'
+import { FileText, Sparkles, Calculator, CheckCircle } from 'lucide-react'
 
-const features = [
+const capabilities = [
   {
-    icon: Bot,
-    title: 'Fully Autonomous',
-    description: 'Our AI agents handle everything from research to publication',
+    icon: FileText,
+    title: '3,000+ Word Authority Posts',
+    description: 'Not just fluff. Our agents perform Google Scraping & Research to write comprehensive Ultimate Guides, How-to\'s, and Versus Articles that rank.',
+    tag: 'Fact-Checked',
   },
   {
-    icon: Zap,
-    title: 'Lightning Fast',
-    description: 'Generate high-quality content in minutes, not hours',
+    icon: Sparkles,
+    title: 'Viral Content Engine',
+    description: 'AI-generated trending content pieces designed for maximum shareability and engagement across social platforms.',
+    tag: 'High Engagement',
   },
   {
-    icon: Clock,
-    title: 'Always On',
-    description: 'Consistent content delivery on autopilot, 24/7',
+    icon: Calculator,
+    title: 'Interactive Tools & Calculators',
+    description: 'Custom calculators and interactive widgets that drive traffic and backlinks to your site automatically.',
+    tag: 'Lead Magnets',
   },
   {
-    icon: Target,
-    title: 'Precision Targeting',
-    description: 'Keywords and topics tailored to your exact audience',
+    icon: CheckCircle,
+    title: 'Programmatic SEO Assets',
+    description: 'Scalable landing pages and content assets that target long-tail keywords at scale.',
+    tag: 'Scalable',
   },
 ]
 
 export default function SEOBotIntro() {
   return (
-    <section className="py-20 px-4 bg-card border-y border-border">
+    <section id="features" className="py-24 px-4 bg-gradient-to-b from-[#0f172a] to-[#020617]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,35 +41,38 @@ export default function SEOBotIntro() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3">
-            Why YourLeadMatrix?
+          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
+            The Output
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            SEO for busy founders
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+            What Our Agents Deliver
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            An all-in-one AI agent that saves you time and effort while delivering exceptional results.
+            A 3-column grid of high-value content types our AI agents create for your business.
           </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
+          {capabilities.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 rounded-xl bg-background border border-border hover:border-accent/50 transition-colors group"
+              className="p-6 rounded-xl glass-card glass-card-hover group"
             >
-              <div className="p-3 rounded-lg bg-accent/10 w-fit mb-4 group-hover:bg-accent/20 transition-colors">
-                <feature.icon className="h-6 w-6 text-accent" />
+              <div className="p-3 rounded-lg bg-primary/10 w-fit mb-4 group-hover:bg-primary/20 transition-colors">
+                <item.icon className="h-6 w-6 text-primary" />
               </div>
+              <span className="inline-flex px-2.5 py-1 text-xs font-medium text-accent bg-accent/10 rounded-full mb-3">
+                {item.tag}
+              </span>
               <h3 className="font-display text-lg font-semibold text-foreground mb-2">
-                {feature.title}
+                {item.title}
               </h3>
-              <p className="text-sm text-muted-foreground">
-                {feature.description}
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {item.description}
               </p>
             </motion.div>
           ))}
