@@ -1,7 +1,5 @@
 'use client'
 
-import { motion, useAnimation } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
 import { Globe } from 'lucide-react'
 
 const languages = [
@@ -10,61 +8,6 @@ const languages = [
   "Bulgarian", "Arabic", "Dutch", "Chinese", "Croatian", "Czech", "Hungarian", "Hindi"
 ]
 
-const LanguageRow = ({ languages, direction }: { languages: string[], direction: 'left' | 'right' }) => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [containerWidth, setContainerWidth] = useState(0)
-  const controls = useAnimation()
-
-  useEffect(() => {
-    if (containerRef.current) {
-      setContainerWidth(containerRef.current.offsetWidth)
-    }
-
-    const handleResize = () => {
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.offsetWidth)
-      }
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
-  useEffect(() => {
-    if (containerWidth > 0) {
-      controls.start({
-        x: direction === 'left' ? [-containerWidth / 2, 0] : [0, -containerWidth / 2],
-        transition: {
-          x: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 40,
-            ease: "linear",
-          },
-        },
-      })
-    }
-  }, [containerWidth, controls, direction])
-
-  return (
-    <div ref={containerRef} className="overflow-hidden mb-4">
-      <motion.div
-        className="flex gap-3"
-        animate={controls}
-      >
-        {[...languages, ...languages].map((lang, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 px-4 py-2 rounded-lg glass-card text-sm text-foreground hover:border-primary/50 transition-colors"
-          >
-            {lang}
-          </div>
-        ))}
-      </motion.div>
-    </div>
-  )
-}
-
 export default function LanguageShowcase() {
   const rowCount = 3
   const languagesPerRow = Math.ceil(languages.length / rowCount)
@@ -72,13 +15,7 @@ export default function LanguageShowcase() {
   return (
     <section className="py-24 px-4 bg-gradient-to-b from-[#020617] to-[#0f172a] overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center p-3 rounded-full bg-primary/10 mb-4">
             <Globe className="h-6 w-6 text-primary" />
           </div>
@@ -88,16 +25,30 @@ export default function LanguageShowcase() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Expand into new markets with content optimized for local search engines.
           </p>
-        </motion.div>
+        </div>
         
         <div className="relative">
-          {[...Array(rowCount)].map((_, index) => (
-            <LanguageRow
-              key={index}
-              languages={languages.slice(index * languagesPerRow, (index + 1) * languagesPerRow)}
-              direction={index % 2 === 0 ? 'left' : 'right'}
-            />
-          ))}
+          {[...Array(rowCount)].map((_, rowIndex) => {
+            const rowLanguages = languages.slice(rowIndex * languagesPerRow, (rowIndex + 1) * languagesPerRow)
+            const direction = rowIndex % 2 === 0 ? 'left' : 'right'
+            return (
+              <div key={rowIndex} className="overflow-hidden mb-4">
+                <div 
+                  className={`flex gap-3 ${direction === 'left' ? 'animate-scroll-left' : 'animate-scroll-right'}`}
+                  style={{ width: 'max-content' }}
+                >
+                  {[...rowLanguages, ...rowLanguages, ...rowLanguages].map((lang, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 px-4 py-2 rounded-lg glass-card text-sm text-foreground hover:border-primary/50 transition-colors"
+                    >
+                      {lang}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

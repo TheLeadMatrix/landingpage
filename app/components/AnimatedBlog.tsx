@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { Search, FileText, Zap, CheckCircle } from 'lucide-react'
@@ -50,36 +49,23 @@ export default function AnimatedBlog() {
   return (
     <section className="py-24 px-4 bg-gradient-to-b from-[#020617] to-[#0f172a]">
       <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
             Live Demo
           </p>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
             Watch Our AI in Action
           </h2>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           key={key}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
           className="relative rounded-2xl glass-card p-6 sm:p-8 shadow-2xl shadow-black/30"
         >
           <div className="space-y-5">
             {steps.map((step, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.15 }}
                 className={`flex items-start gap-4 p-4 rounded-xl ${step.bgColor} border ${step.borderColor}`}
               >
                 <div className={`p-2.5 rounded-lg ${step.bgColor}`}>
@@ -105,10 +91,10 @@ export default function AnimatedBlog() {
                     className="text-sm text-muted-foreground"
                   />
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

@@ -1,7 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
-
 const stats = [
   { value: '9.8M+', label: 'Impressions This Year' },
   { value: '100k+', label: 'Articles Created' },
@@ -15,12 +11,8 @@ export default function ImpactStats() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="text-center"
             >
               <p className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-2">
@@ -29,7 +21,7 @@ export default function ImpactStats() {
               <p className="text-sm text-muted-foreground">
                 {stat.label}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import BookingPopup from './BookingPopup'
 
@@ -20,39 +19,32 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 glass-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <motion.a
+          <a
             href="#"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
             className="font-display text-xl font-bold text-foreground"
           >
             YourLeadMatrix
-          </motion.a>
+          </a>
 
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link, index) => (
-              <motion.a
+            {navLinks.map((link) => (
+              <a
                 key={link.href}
                 href={link.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
-              </motion.a>
+              </a>
             ))}
           </nav>
 
           <div className="flex items-center gap-4">
-            <motion.button
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
+            <button
               onClick={() => setIsPopupOpen(true)}
               className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-primary-foreground bg-primary rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/25"
             >
               Book a Strategy Call
-            </motion.button>
+            </button>
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -64,12 +56,7 @@ export default function Header() {
         </div>
 
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden py-4 border-t border-white/10"
-          >
+          <div className="md:hidden py-4 border-t border-white/10">
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
@@ -91,7 +78,7 @@ export default function Header() {
                 Book a Strategy Call
               </button>
             </nav>
-          </motion.div>
+          </div>
         )}
       </div>
 

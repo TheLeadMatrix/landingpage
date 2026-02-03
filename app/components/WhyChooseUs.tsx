@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { Check } from 'lucide-react'
 
@@ -25,13 +24,7 @@ export default function WhyChooseUs() {
   return (
     <section className="py-24 px-4 bg-gradient-to-b from-[#020617] to-[#0f172a]">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
             Why Us
           </p>
@@ -41,15 +34,10 @@ export default function WhyChooseUs() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Our AI agents work 24/7, delivering consistent content that compounds your organic growth.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <div>
             <h3 className="font-display text-2xl font-bold text-foreground mb-4">
               Compounding Results
             </h3>
@@ -59,30 +47,20 @@ export default function WhyChooseUs() {
             </p>
             <ul className="space-y-4">
               {benefits.map((benefit, index) => (
-                <motion.li
+                <li
                   key={index}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
                   className="flex items-center gap-3"
                 >
                   <div className="p-1 rounded-full bg-accent/20">
                     <Check className="h-4 w-4 text-accent" />
                   </div>
                   <span className="text-foreground">{benefit}</span>
-                </motion.li>
+                </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="h-80 p-6 rounded-2xl glass-card"
-          >
+          <div className="h-80 p-6 rounded-2xl glass-card">
             <p className="text-sm font-medium text-muted-foreground mb-4">Organic Impressions Growth</p>
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={data}>
@@ -126,7 +104,7 @@ export default function WhyChooseUs() {
                 />
               </AreaChart>
             </ResponsiveContainer>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

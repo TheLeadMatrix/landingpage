@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
@@ -47,29 +44,19 @@ export default function BlogPosts() {
   return (
     <section id="articles" className="py-24 px-4 bg-gradient-to-b from-[#0f172a] to-[#020617]">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
             Content Examples
           </p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
             See What We Create
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.map((article, index) => (
-            <motion.article
+            <article
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group p-6 rounded-2xl glass-card glass-card-hover"
             >
               <span className="inline-flex px-3 py-1 text-xs font-semibold text-primary bg-primary/10 rounded-full mb-4">
@@ -91,7 +78,7 @@ export default function BlogPosts() {
                 Read article
                 <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
               </Link>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

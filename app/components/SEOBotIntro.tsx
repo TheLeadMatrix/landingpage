@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { FileText, Sparkles, Calculator, CheckCircle } from 'lucide-react'
 
 const capabilities = [
@@ -34,13 +31,7 @@ export default function SEOBotIntro() {
   return (
     <section id="features" className="py-24 px-4 bg-gradient-to-b from-[#0f172a] to-[#020617]">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
             The Output
           </p>
@@ -50,16 +41,12 @@ export default function SEOBotIntro() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A 3-column grid of high-value content types our AI agents create for your business.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {capabilities.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="p-6 rounded-xl glass-card glass-card-hover group"
             >
               <div className="p-3 rounded-lg bg-primary/10 w-fit mb-4 group-hover:bg-primary/20 transition-colors">
@@ -74,7 +61,7 @@ export default function SEOBotIntro() {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {item.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

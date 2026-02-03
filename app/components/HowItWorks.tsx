@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { MessageSquare, Settings, Rocket, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 import BookingPopup from './BookingPopup'
@@ -32,29 +31,19 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="py-24 px-4 bg-gradient-to-b from-[#0f172a] to-[#020617]">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
             The Process
           </p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
             How It Works
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {steps.map((step, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
               className="relative p-8 rounded-2xl glass-card glass-card-hover group"
             >
               <span className="absolute -top-4 -left-2 font-display text-7xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
@@ -71,17 +60,11 @@ export default function HowItWorks() {
                   {step.description}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center"
-        >
+        <div className="text-center">
           <button
             onClick={() => setIsPopupOpen(true)}
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-primary-foreground bg-primary rounded-lg hover:bg-primary/90 transition-all group shadow-lg shadow-primary/25"
@@ -89,7 +72,7 @@ export default function HowItWorks() {
             Book Your Strategy Call
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </button>
-        </motion.div>
+        </div>
       </div>
 
       <BookingPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
