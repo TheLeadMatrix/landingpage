@@ -3,100 +3,103 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import BookingPopup from './BookingPopup'
 
 export default function HeroSection() {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden pb-0">
-      {/* Matrix background effect */}
+    <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24 pb-20 overflow-hidden">
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#0a1628] to-[#0f172a]" />
+      
+      {/* Subtle grid pattern */}
       <div 
-        className="absolute inset-0 opacity-20 z-0"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(0, 255, 0, .05) 25%, rgba(0, 255, 0, .05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 0, .05) 75%, rgba(0, 255, 0, .05) 76%, transparent 77%, transparent)',
-          backgroundSize: '50px 50px',
-          animation: 'matrix 3s linear infinite'
+          backgroundImage: `
+            linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px),
+            linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full">
-        <motion.h3
-          initial={{ opacity: 0, y: -20 }}
+      {/* Radial glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-accent/5 rounded-full blur-3xl" />
+
+      <div className="relative z-10 max-w-4xl mx-auto w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-[#00FF00] font-mono mb-6 text-lg"
-          style={{ fontFamily: 'inherit' }}
+          className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-border bg-card/50 backdrop-blur-sm"
         >
-          // Powered by AI and GPT agents
-        </motion.h3>
+          <Sparkles className="h-4 w-4 text-accent" />
+          <span className="text-sm text-muted-foreground">Powered by AI and GPT agents</span>
+        </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-4xl md:text-6xl font-bold mb-4"
-          style={{ fontFamily: 'inherit' }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6"
         >
-          YourLeadMatrix — fully autonomous «SEO Agents»
+          <span className="text-balance">Fully autonomous SEO agents for</span>
           <br />
-          for{' '}
-          <TypeAnimation
-            sequence={[
-              'marketers',
-              2000,
-              'founders',
-              2000,
-              'creators',
-              2000,
-              'agencies',
-              2000,
-            ]}
-            wrapper="span"
-            cursor={true}
-            repeat={Infinity}
-            className="text-[#00FF00]"
-          />
+          <span className="text-accent">
+            <TypeAnimation
+              sequence={[
+                'marketers',
+                2000,
+                'founders',
+                2000,
+                'creators',
+                2000,
+                'agencies',
+                2000,
+              ]}
+              wrapper="span"
+              cursor={true}
+              repeat={Infinity}
+            />
+          </span>
         </motion.h1>
 
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-xl md:text-2xl mt-6 mb-12 opacity-90"
-          style={{ fontFamily: 'inherit' }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty"
         >
-          We'll take 100% of SEO work out of your way so that you
-          <br />
-          can focus on building your product.
-        </motion.h2>
+          We handle 100% of your SEO content strategy so you can focus on building your product. 
+          AI-powered content that drives real organic traffic.
+        </motion.p>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setIsPopupOpen(true)}
-          className="bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-3 px-6 rounded-md text-lg transition-colors duration-300"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          Get a Quote
-        </motion.button>
+          <button
+            onClick={() => setIsPopupOpen(true)}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-primary-foreground bg-primary rounded-lg hover:bg-primary/90 transition-colors group"
+          >
+            Get a Quote
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </button>
+          <a
+            href="#how-it-works"
+            className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-foreground border border-border rounded-lg hover:bg-card transition-colors"
+          >
+            See How It Works
+          </a>
+        </motion.div>
       </div>
 
       <BookingPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
-
-      <style jsx global>{`
-        @keyframes matrix {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(50px);
-          }
-        }
-      `}</style>
     </section>
   )
 }
-
-
-
-

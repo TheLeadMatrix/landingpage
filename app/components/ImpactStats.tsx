@@ -2,66 +2,52 @@
 
 import { motion } from 'framer-motion'
 
+const stats = [
+  { value: '100k+', label: 'Articles Created' },
+  { value: '600M+', label: 'Impressions Driven' },
+  { value: '15M+', label: 'Clicks Generated' },
+  { value: '25+', label: 'Languages Supported' },
+]
+
 export default function ImpactStats() {
   return (
-    <section className="pb-20 px-4 bg-black relative overflow-hidden">
-      {/* Matrix background effect */}
-      <div 
-        className="absolute inset-0 opacity-20 z-0"
-        style={{
-          backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(0, 255, 0, .05) 25%, rgba(0, 255, 0, .05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 0, .05) 75%, rgba(0, 255, 0, .05) 76%, transparent 77%, transparent)',
-          backgroundSize: '50px 50px',
-          animation: 'matrix 3s linear infinite',
-          position: 'absolute',
-          top: '-50px',
-          left: 0,
-          right: 0,
-          bottom: 0,
-        }}
-      />
-
-      <div className="max-w-6xl mx-auto text-center relative z-10 pt-12">
-        <motion.h3
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+    <section className="py-20 px-4 bg-card border-y border-border">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-[#00FF00] font-mono mb-6 text-lg"
+          className="text-center mb-12"
         >
-          // Create SEO optimized blog
-        </motion.h3>
+          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3">
+            Proven Results
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
+            Trusted by businesses worldwide
+          </h2>
+        </motion.div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-4xl md:text-6xl font-bold mb-6"
-        >
-          We've created over <span className="text-[#00FF00]">100k</span> articles.
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-xl md:text-2xl"
-        >
-          Driving <span className="text-[#00FF00]">600 Million</span> impressions & <span className="text-[#00FF00]">15 million</span> clicks.
-        </motion.p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="text-center"
+            >
+              <p className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-2">
+                {stat.value}
+              </p>
+              <p className="text-sm text-muted-foreground">
+                {stat.label}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes matrix {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(50px);
-          }
-        }
-      `}</style>
     </section>
   )
 }
-
-
-

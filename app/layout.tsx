@@ -1,11 +1,19 @@
 import './globals.css'
-import { JetBrains_Mono } from 'next/font/google'
+import { Inter, Space_Grotesk } from 'next/font/google'
 
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter'
+})
+
+const spaceGrotesk = Space_Grotesk({ 
+  subsets: ['latin'],
+  variable: '--font-space-grotesk'
+})
 
 export const metadata = {
-  title: 'AI-Powered SEO Blog Service',
-  description: 'Boost your rankings with AI-generated, SEO-optimized blog content.',
+  title: 'YourLeadMatrix | AI-Powered SEO Agents',
+  description: 'Fully autonomous SEO agents that handle 100% of your content strategy. AI-generated, SEO-optimized blog content that drives real results.',
 }
 
 export default function RootLayout({
@@ -15,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={jetbrainsMono.className}>{children}
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>{children}
         <script src="https://link.yourleadmatrix.com/js/form_embed.js" type="text/javascript"></script>
       </body>
     </html>

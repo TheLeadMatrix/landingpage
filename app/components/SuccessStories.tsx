@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { TrendingUp, MousePointer, Eye, Target } from 'lucide-react'
 
 const metrics = [
   {
@@ -39,51 +40,70 @@ const metrics = [
 ]
 
 export default function SuccessStories() {
-
   return (
-    <section className="py-20 px-4 bg-gray-800">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
+    <section id="results" className="py-20 px-4 bg-background">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold mb-12 text-center"
+          className="text-center mb-16"
         >
-          <span className="text-[#00FF00] font-mono text-base block mb-2">// Real Results</span>
-          Proven SEO Performance Across Industries
-        </motion.h2>
+          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3">
+            Real Results
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
+            Proven SEO performance across industries
+          </h2>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 gap-6">
           {metrics.map((metric, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-900 rounded-lg p-6 border border-gray-700 transition-all duration-300 hover:border-[#00FF00] hover:shadow-[0_0_20px_rgba(0,255,0,0.15)] hover:scale-[1.02]"
+              className="p-6 rounded-xl bg-card border border-border hover:border-accent/30 transition-all"
             >
-              <h3 className="text-xl font-bold mb-4 text-[#00FF00]">{metric.title}</h3>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-6">
+                {metric.title}
+              </h3>
               
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-blue-500 bg-opacity-20 p-4 rounded-lg">
-                  <p className="text-sm text-blue-300 mb-1">Total Clicks</p>
-                  <p className="text-2xl font-bold text-blue-400">{metric.clicks}</p>
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="p-4 rounded-lg bg-accent/10 border border-accent/20">
+                  <div className="flex items-center gap-2 mb-1">
+                    <MousePointer className="h-4 w-4 text-accent" />
+                    <p className="text-xs text-muted-foreground">Total Clicks</p>
+                  </div>
+                  <p className="text-2xl font-bold text-foreground">{metric.clicks}</p>
                 </div>
-                <div className="bg-purple-500 bg-opacity-20 p-4 rounded-lg">
-                  <p className="text-sm text-purple-300 mb-1">Impressions</p>
-                  <p className="text-2xl font-bold text-purple-400">{metric.impressions}</p>
+                <div className="p-4 rounded-lg bg-teal-500/10 border border-teal-500/20">
+                  <div className="flex items-center gap-2 mb-1">
+                    <Eye className="h-4 w-4 text-teal-400" />
+                    <p className="text-xs text-muted-foreground">Impressions</p>
+                  </div>
+                  <p className="text-2xl font-bold text-foreground">{metric.impressions}</p>
                 </div>
-                <div className="bg-gray-700 bg-opacity-50 p-4 rounded-lg">
-                  <p className="text-sm text-gray-400 mb-1">Avg. CTR</p>
-                  <p className="text-2xl font-bold text-gray-300">{metric.ctr}</p>
+                <div className="p-4 rounded-lg bg-secondary border border-border">
+                  <div className="flex items-center gap-2 mb-1">
+                    <TrendingUp className="h-4 w-4 text-muted-foreground" />
+                    <p className="text-xs text-muted-foreground">Avg. CTR</p>
+                  </div>
+                  <p className="text-2xl font-bold text-foreground">{metric.ctr}</p>
                 </div>
-                <div className="bg-gray-700 bg-opacity-50 p-4 rounded-lg">
-                  <p className="text-sm text-gray-400 mb-1">Avg. Position</p>
-                  <p className="text-2xl font-bold text-gray-300">{metric.position}</p>
+                <div className="p-4 rounded-lg bg-secondary border border-border">
+                  <div className="flex items-center gap-2 mb-1">
+                    <Target className="h-4 w-4 text-muted-foreground" />
+                    <p className="text-xs text-muted-foreground">Avg. Position</p>
+                  </div>
+                  <p className="text-2xl font-bold text-foreground">{metric.position}</p>
                 </div>
               </div>
 
-              <div className="relative h-[200px] w-full rounded-lg overflow-hidden">
+              <div className="relative h-[180px] w-full rounded-lg overflow-hidden border border-border">
                 <Image
                   src={metric.graphUrl || "/placeholder.svg"}
                   alt={`Performance graph for ${metric.title}`}
@@ -94,10 +114,7 @@ export default function SuccessStories() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   )
 }
-
-

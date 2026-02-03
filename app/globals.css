@@ -2,24 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
-}
-
-/* Matrix animation */
-@keyframes matrix {
-  0% {
-    transform: translateY(0);
+@layer base {
+  :root {
+    --background: 222 47% 3%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222 47% 5%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 5%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 3%;
+    
+    --secondary: 217 33% 12%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 33% 12%;
+    --muted-foreground: 215 20% 55%;
+    
+    --accent: 199 89% 48%;
+    --accent-foreground: 222 47% 3%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 33% 15%;
+    --input: 217 33% 15%;
+    --ring: 199 89% 48%;
+    
+    --radius: 0.625rem;
+    
+    --chart-1: 199 89% 48%;
+    --chart-2: 172 66% 50%;
+    --chart-3: 210 40% 98%;
+    --chart-4: 217 33% 35%;
+    --chart-5: 215 20% 55%;
   }
-  100% {
-    transform: translateY(50px);
-  }
 }
 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

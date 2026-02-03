@@ -8,10 +8,13 @@ import SuccessStories from './components/SuccessStories'
 import LanguageShowcase from './components/LanguageShowcase'
 import GetStarted from './components/GetStarted'
 import BlogPosts from './components/BlogPosts'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <main className="min-h-screen bg-background text-foreground">
+      <Header />
       <HeroSection />
       <ImpactStats />
       <AnimatedBlog />
@@ -22,6 +25,7 @@ export default function Home() {
       <LanguageShowcase />
       <BlogPosts />
       <GetStarted />
+      <Footer />
     </main>
   )
 }

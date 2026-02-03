@@ -1,52 +1,76 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Bot, Zap, Clock, Target } from 'lucide-react'
+
+const features = [
+  {
+    icon: Bot,
+    title: 'Fully Autonomous',
+    description: 'Our AI agents handle everything from research to publication',
+  },
+  {
+    icon: Zap,
+    title: 'Lightning Fast',
+    description: 'Generate high-quality content in minutes, not hours',
+  },
+  {
+    icon: Clock,
+    title: 'Always On',
+    description: 'Consistent content delivery on autopilot, 24/7',
+  },
+  {
+    icon: Target,
+    title: 'Precision Targeting',
+    description: 'Keywords and topics tailored to your exact audience',
+  },
+]
 
 export default function SEOBotIntro() {
   return (
-    <section className="py-20 px-4 bg-black relative overflow-hidden">
-      {/* Matrix background effect */}
-      <div 
-        className="absolute inset-0 opacity-20 z-0"
-        style={{
-          backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(0, 255, 0, .05) 25%, rgba(0, 255, 0, .05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 0, .05) 75%, rgba(0, 255, 0, .05) 76%, transparent 77%, transparent)',
-          backgroundSize: '50px 50px',
-          animation: 'matrix 3s linear infinite'
-        }}
-      />
-
-      <div className="max-w-6xl mx-auto text-center relative z-10">
-        <motion.h3
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+    <section className="py-20 px-4 bg-card border-y border-border">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-[#00FF00] font-mono mb-2 text-lg"
-          style={{ fontFamily: 'inherit' }}
+          className="text-center mb-16"
         >
-          // Why choose YourLeadMatrix?
-        </motion.h3>
+          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3">
+            Why YourLeadMatrix?
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            SEO for busy founders
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            An all-in-one AI agent that saves you time and effort while delivering exceptional results.
+          </p>
+        </motion.div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-3xl md:text-5xl font-bold mb-6"
-          style={{ fontFamily: 'inherit' }}
-        >
-          SEO for project busy founders
-        </motion.h2>
-
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-2xl md:text-3xl opacity-90"
-          style={{ fontFamily: 'inherit' }}
-        >
-          We are an all-in-one AI agent that saves you time and effort.
-        </motion.h1>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="p-6 rounded-xl bg-background border border-border hover:border-accent/50 transition-colors group"
+            >
+              <div className="p-3 rounded-lg bg-accent/10 w-fit mb-4 group-hover:bg-accent/20 transition-colors">
+                <feature.icon className="h-6 w-6 text-accent" />
+              </div>
+              <h3 className="font-display text-lg font-semibold text-foreground mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )
 }
-

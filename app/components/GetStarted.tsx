@@ -2,44 +2,39 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 import BookingPopup from './BookingPopup'
 
 export default function GetStarted() {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
 
   return (
-    <section className="py-20 px-4 bg-gray-800">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
+    <section className="py-24 px-4 bg-gradient-to-b from-background to-card">
+      <div className="max-w-4xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold mb-8 text-center"
         >
-          Let's Take Your SEO to the Next Level
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl md:text-2xl mb-8 text-center"
-        >
-          Book a call to get a personalized quote tailored to your business needs.
-        </motion.p>
-        <div className="flex justify-center">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Ready to dominate search rankings?
+          </h2>
+          <p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+            Book a call to get a personalized quote tailored to your business needs.
+            Let our AI agents handle your SEO while you focus on growth.
+          </p>
+          <button
             onClick={() => setIsPopupOpen(true)}
-            className="bg-[#00FF00] hover:bg-[#00DD00] text-black font-bold py-3 px-6 rounded-md text-lg transition-colors duration-300"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-medium text-primary-foreground bg-primary rounded-lg hover:bg-primary/90 transition-colors group"
           >
             Get a Quote
-          </motion.button>
-        </div>
-        <BookingPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </motion.div>
       </div>
+
+      <BookingPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </section>
   )
 }
-
-

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { X } from 'lucide-react'
 
 interface BookingPopupProps {
   isOpen: boolean
@@ -44,18 +45,26 @@ export default function BookingPopup({ isOpen, onClose }: BookingPopupProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50"
         >
           <motion.div
             ref={popupRef}
-            initial={{ scale: 0.9, opacity: 0 }}
+            initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
+            exit={{ scale: 0.95, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-gray-800 rounded-lg p-6 w-[700px] h-[700px] overflow-hidden flex flex-col"
+            className="bg-card rounded-xl w-full max-w-[700px] h-[700px] overflow-hidden flex flex-col border border-border shadow-2xl"
           >
-            <h2 className="text-2xl font-bold mb-4 text-white">Book a Call</h2>
-            <div className="h-[550px] overflow-y-auto">
+            <div className="flex items-center justify-between p-4 border-b border-border">
+              <h2 className="font-display text-xl font-semibold text-foreground">Book a Call</h2>
+              <button
+                onClick={onClose}
+                className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto">
               <iframe 
                 src="https://link.yourleadmatrix.com/widget/booking/bv9szTNrVyisg3zyEffM" 
                 style={{width: '100%', height: '100%', border: 'none'}}
@@ -63,16 +72,9 @@ export default function BookingPopup({ isOpen, onClose }: BookingPopupProps) {
                 id="bv9szTNrVyisg3zyEffM_1736955998667"
               ></iframe>
             </div>
-            <button
-              onClick={onClose}
-              className="mt-4 w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out"
-            >
-              Close
-            </button>
           </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
   )
 }
-

@@ -45,29 +45,20 @@ const articles = [
 
 export default function BlogPosts() {
   return (
-    <section className="py-20 px-4 bg-black relative overflow-hidden">
-      {/* Matrix background effect */}
-      <div 
-        className="absolute inset-0 opacity-20 z-0"
-        style={{
-          backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(0, 255, 0, .05) 25%, rgba(0, 255, 0, .05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 0, .05) 75%, rgba(0, 255, 0, .05) 76%, transparent 77%, transparent)',
-          backgroundSize: '50px 50px',
-          animation: 'matrix 3s linear infinite'
-        }}
-      />
-
-      <div className="max-w-6xl mx-auto relative z-10">
+    <section id="articles" className="py-20 px-4 bg-background">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <span className="text-[#00FF00] font-mono text-sm sm:text-base mb-2 block">
-            // Article examples
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-            Latest SEO Insights & Guides
+          <p className="text-sm font-medium text-accent uppercase tracking-wider mb-3">
+            Article Examples
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
+            Latest SEO insights & guides
           </h2>
         </motion.div>
 
@@ -77,48 +68,33 @@ export default function BlogPosts() {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-gray-900 rounded-lg p-6 border border-gray-800 hover:border-[#00FF00] transition-all duration-300"
+              className="group p-6 rounded-xl bg-card border border-border hover:border-accent/30 transition-all"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-[#00FF00]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg pointer-events-none" />
+              <span className="inline-flex px-3 py-1 text-xs font-medium text-accent bg-accent/10 rounded-full mb-4">
+                {article.category}
+              </span>
               
-              <div className="relative z-10">
-                <span className="inline-block px-3 py-1 text-xs font-mono text-black bg-[#00FF00] rounded-full mb-4">
-                  {article.category}
-                </span>
-                
-                <h3 className="text-lg sm:text-xl font-bold mb-3 line-clamp-2">
-                  {article.title}
-                </h3>
-                
-                <p className="text-sm text-gray-400 mb-4 line-clamp-2">
-                  {article.excerpt}
-                </p>
-                
-                <Link 
-                  href={article.url}
-                  className="inline-flex items-center text-[#00FF00] hover:text-[#00DD00] transition-colors duration-300"
-                >
-                  <span className="text-sm font-semibold">Read more</span>
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
+              <h3 className="font-display text-lg font-semibold text-foreground mb-3 line-clamp-2 group-hover:text-accent transition-colors">
+                {article.title}
+              </h3>
+              
+              <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                {article.excerpt}
+              </p>
+              
+              <Link 
+                href={article.url}
+                className="inline-flex items-center text-sm font-medium text-accent hover:text-accent/80 transition-colors group/link"
+              >
+                Read more
+                <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+              </Link>
             </motion.article>
           ))}
         </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes matrix {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(50px);
-          }
-        }
-      `}</style>
     </section>
   )
 }
-
